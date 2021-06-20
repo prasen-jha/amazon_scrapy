@@ -26,6 +26,6 @@ class AmznSpider(scrapy.Spider):
     def parse_product(self, response):
         yield {
             'product_name': str(response.xpath('//span[@id="productTitle"]/text()').get()).strip(),
-
+            'rating': response.xpath(""),
             'link': response.url,
         }
