@@ -19,7 +19,7 @@ RETRY_TIMES = 5
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'amznSpyder (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:90.0) Gecko/20100101 Firefox/90.0'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
