@@ -16,8 +16,11 @@ class AmazoncrawlSpider(CrawlSpider):
     )
 
     def parse_item(self, response):
+        rating = response.xpath("//span[@id='acrPopover']/@title").get() or \
+                 response.xpath("//span[@id='acrPopover']/@title")[0].get() if response.xpath("//span[@id='acrPopover']/@title") else 0
+
         yield {
             'product_name': str(response.xpath('//span[@id="productTitle"]/text()').get()).strip(),
-            # 'rating': response.xpath(""),
-            'link': response.url,
+            'rating': rating,
+            # 'link': response.url,
         }
