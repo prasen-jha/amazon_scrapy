@@ -8,11 +8,16 @@ class AmazoncrawlSpider(CrawlSpider):
     allowed_domains = ['www.amazon.in']
     start_urls = ['https://www.amazon.in/s?k=spice+mix']
 
+    # Rules for extraction of links
     product_link = LinkExtractor(restrict_xpaths='//div//h2/a')
     rule_product_link = Rule(product_link, callback='parse_item', follow=False)
 
+    next_page_link = LinkExtractor(restrict_xpaths="//ul[@class='a-pagination']//li/a/")
+    rule_next_page = Rule(next_page_link, follow=True)
+
     rules = (
         rule_product_link,
+        rule_next_page
     )
 
     def parse_item(self, response):
