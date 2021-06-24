@@ -3,6 +3,14 @@ from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
 
 
+# TODO: Add more values to extract e.g:
+#  ingredient type, amazon seller rank, weight and quantity
+
+# TODO: Add item pipeline and store data to a csv
+#   Add pipeline to store data to database
+#   Duplicate filter mechanism
+
+
 class AmazoncrawlSpider(CrawlSpider):
     name = 'amazonCrawl'
     allowed_domains = ['www.amazon.in']
